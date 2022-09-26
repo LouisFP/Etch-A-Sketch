@@ -2,6 +2,7 @@ const DEFAULT_SIZE = "16";
 const DEFAULT_COLOUR = "black";
 
 let grid = document.getElementById("grid");
+let size = prompt("What length of square would you like?");
 let blackButton = document.getElementById("black-colour");
 let rainbowButton = document.getElementById("rainbow");
 let shadingButton = document.getElementById("shading");
@@ -17,18 +18,14 @@ function setGrid(size) {
   for (i; i < size * size; i++) {
     let gridDiv = document.createElement("div");
     gridDiv.classList.add("gridElement");
+    gridDiv.classList.add('gridBorder');
     grid.appendChild(gridDiv);
   }
 }
 
-let gridDivs = document.querySelectorAll(".gridElement");
+setGrid(size);
 
-function updateGrid() {
-    sizeButton.addEventListener('input', (e) => {
-        let newSize = e.target.value
-        setGrid(newSize);
-    })
-}
+let gridDivs = document.querySelectorAll(".gridElement");
 
 function changeColour() {
   gridDivs.forEach((gridDiv) =>
@@ -65,10 +62,10 @@ function changeShading() {
 
 function toggleLines() {
   gridDivs.forEach((gridDiv) => {
-    if (gridDiv.classList.contains("gridBorder")) {
-      gridDiv.classList.remove("gridBorder");
-    } else if (!gridDiv.classList.contains("gridBorder")) {
+    if (!gridDiv.classList.contains("gridBorder")) {
       gridDiv.classList.add("gridBorder");
+    } else if (gridDiv.classList.contains("gridBorder")) {
+      gridDiv.classList.remove("gridBorder");
     }
   });
 }
@@ -113,10 +110,6 @@ guidelineButton.addEventListener("click", () => {
 clearAllButton.addEventListener("click", () => {
   eraseAllColour();
 });
-
-window.onload = () => {
-  setGrid(DEFAULT_SIZE);
-};
 
 // Helper functions
 
