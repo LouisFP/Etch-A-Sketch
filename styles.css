@@ -1,0 +1,48 @@
+/* * {border: 1px solid red} */
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.rubric {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    float: left;
+}
+
+#grid {
+    display: grid;
+    width: 400px;
+}
+
+.gridBorder {
+    border: 1px solid black;
+}
+
+#grid > div::before {
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+}
+
+.eraser {
+    background-color: white;
+}
+
+.button {
+    background-color: antiquewhite;
+    padding: 8px 24px;
+}
+
+.clearbutton {
+    display: flex;
+    justify-content: center;
+}
